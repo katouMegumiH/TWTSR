@@ -18,8 +18,6 @@ The framework consists of three main components:
    - Window-based self-attention is augmented with explicit phase-lag modeling.  
    - We extract direction, speed and lag-spectrum of BOLD propagation as quantitative traveling-wave biomarkers.
 
-If you use this code in your research, please consider citing the corresponding paper / preprint (see [Citation](#8-citation)).
-
 ---
 
 ## 2. Features
