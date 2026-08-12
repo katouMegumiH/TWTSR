@@ -1,22 +1,22 @@
-# TWTSD: Traveling-Wave Spatiotemporal Transformer with Structure-Guided Denoising
+# TWT-SR: Traveling-Wave-Inspired Spatiotemporal Transformer with Structure-Guided rs-fMRI Refinement
 
 ![Framework Overview](framework.png)
 
 ## 1. Overview
 
-TWTSD is a PyTorch / PyTorch Lightning implementation of a **traveling-wave–aware spatiotemporal transformer** with **structure-guided unsupervised denoising** for rs-fMRI based disease spectrum identification.
+TWT-SR is a PyTorch / PyTorch Lightning implementation of a **traveling-wave-inspired spatiotemporal transformer** with **structure-guided unsupervised rs-fMRI refinement** for rs-fMRI-based disease spectrum identification.
 
 The framework consists of three main components:
 
-1. **Structure-guided denoising**  
-   - Anatomical priors (e.g. T1/DWI-derived structure) are used to guide an unsupervised denoiser, improving SNR of 4D fMRI.
+1. **Structure-guided rs-fMRI refinement**  
+   - Anatomical priors derived from T1-weighted structural MRI are used to guide unsupervised rs-fMRI refinement, improving the reliability of 4D functional representations.
 
 2. **4D Spatiotemporal Transformer Backbone**  
-   - A Swin4D-like architecture that operates on 4D patches (H × W × D × T) and learns long-range spatiotemporal dependencies.
+   - A Swin4D-like architecture operates on 4D patches (H × W × D × T) and learns long-range spatiotemporal dependencies.
 
-3. **Traveling-Wave–Aware Attention & Metrics**  
+3. **Traveling-Wave-Inspired Attention & Metrics**  
    - Window-based self-attention is augmented with explicit phase-lag modeling.  
-   - We extract direction, speed and lag-spectrum of BOLD propagation as quantitative traveling-wave biomarkers.
+   - The framework extracts direction, speed, and lag-spectrum measures of BOLD propagation-like dynamics.
 
 ---
 
@@ -26,7 +26,7 @@ The framework consists of three main components:
 - ✅ 4D Swin-style transformer (`WindowAttention4D`)
 - ✅ Contrastive pretraining (instance-wise & local-local temporal losses)
 - ✅ Classification & regression heads (sex / diagnosis / age / cognitive score)
-- ✅ Traveling wave metrics extraction:
+- ✅ Traveling-wave metrics extraction:
   - Lag spectrum
   - Direction consistency
   - Speed map in mm/s
@@ -40,23 +40,23 @@ The framework consists of three main components:
 ### 4.1 Clone
 
 ```bash
-git clone https://github.com/katouMegumiH/TWTSD.git
-cd TWTSD
+git clone https://github.com/katouMegumiH/TWTSR.git
+cd TWTSR
 ```
 
 ### 4.2 Create Environment
 
-```
-conda create -n twtsd python=3.10 -y
-conda activate twtsd
+```bash
+conda create -n twtsr python=3.10 -y
+conda activate twtsr
 pip install -r requirements.txt
 ```
 
-##  5. Traveling Wave Extraction
+## 5. Traveling-Wave Extraction
 
-Activation of the travelling wave mechanism:
+Activate the traveling-wave mechanism with:
 
-```
+```bash
 --extract_wave_metrics True
 --TR 2.0
 --voxel_spacing 3.0 3.0 3.0
@@ -71,5 +71,5 @@ wave_metrics/sub_<ID>.pt
 
 ## Contact
 
-	•	Maintainer: Zihan Li
-	•	Email: katoumegumi.h@gmail.com
+- Maintainer: Zihan Li
+- Email: katoumegumi.h@gmail.com
